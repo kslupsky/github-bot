@@ -14,10 +14,6 @@ async def issue_opened_event(event, gh, *args, **kwargs):
     message = f"Thanks @{author} for reporting this issue! My human will start looking into it right away."
     await gh.post(url, data={"body": message})
 
-@routes.get("/")
-async def index(request):
-    return web.Response(status=200, text="Hello World")
-
 @routes.post("/")
 async def main(request):
     body = await request.read()
